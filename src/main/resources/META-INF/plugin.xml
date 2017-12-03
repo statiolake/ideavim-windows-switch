@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>com.example.ideavim_fcitx_switch</id>
+    <name>IdeaVimFcitxSwitch</name>
+    <version>0.0.1</version>
+    <vendor email="statiolake@gmail.com">statiolake</vendor>
+
+    <description>
+        <![CDATA[
+        <p>Auto-switch fcitx input mode in ideavim</p>
+        ]]>
+    </description>
+
+    <change-notes>
+        <![CDATA[
+        0.0.1<br />
+        initial implementation.
+        ]]>
+    </change-notes>
+
+    <idea-version since-build="143" />
+    <depends>com.intellij.modules.lang</depends>
+    <depends>IdeaVIM</depends>
+    <extensions defaultExtensionNs="IdeaVIM">
+        <vimExtension implementation="com.example.ideavim_fcitx_switch.Restore" />
+    </extensions>
+</idea-plugin>
