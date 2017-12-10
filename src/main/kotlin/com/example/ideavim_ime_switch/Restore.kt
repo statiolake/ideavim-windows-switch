@@ -1,4 +1,4 @@
-package com.example.ideavim_fcitx_switch
+package com.example.ideavim_ime_switch
 
 import com.intellij.openapi.command.CommandAdapter
 import com.intellij.openapi.command.CommandEvent
@@ -8,8 +8,8 @@ import com.maddyhome.idea.vim.extension.VimExtension
 import org.apache.commons.lang.StringUtils
 
 class Restore : VimExtension {
-    private val FCITX_OFF_COMMAND_NAMES = arrayOf("Vim Exit Insert Mode")
-    private val FCITX_ON_COMMAND_NAMES = arrayOf(
+    private val IME_OFF_COMMAND_NAMES = arrayOf("Vim Exit Insert Mode")
+    private val IME_ON_COMMAND_NAMES = arrayOf(
             "Vim Insert After Cursor", "Vim Insert After Line End", "Vim Insert Before Cursor",
             "Vim Insert Before First non-Blank", "Vim Insert Character Above Cursor",
             "Vim Insert Character Below Cursor",
@@ -19,7 +19,7 @@ class Restore : VimExtension {
     )
     private var stateChangedListener: CommandListener? = null
 
-    override fun getName() = "fcitx-switch-restore"
+    override fun getName() = "ime-switch-restore"
 
     override fun init() {
         stateChangedListener = stateChangedListener ?: createListener()
@@ -37,14 +37,14 @@ class Restore : VimExtension {
             super.beforeCommandFinished(event)
             val commandName = event?.commandName
             if (StringUtils.isBlank(commandName)) return
-            if (FCITX_OFF_COMMAND_NAMES.contains(commandName)) {
+            if (IME_OFF_COMMAND_NAMES.contains(commandName)) {
                 switchOff()
-            } else if (FCITX_ON_COMMAND_NAMES.contains(commandName)) {
+            } else if (IME_ON_COMMAND_NAMES.contains(commandName)) {
                 switchOn()
             }
         }
     }
 
-    private fun switchOn()  = Runtime.getRuntime().exec("fcitx-remote -o")
-    private fun switchOff() = Runtime.getRuntime().exec("fcitx-remote -c")
+    private fun switchOn()  = Runtime.getRuntime().exec("setime on")
+    private fun switchOff() = Runtime.getRuntime().exec("setime off")
 }

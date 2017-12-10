@@ -22,7 +22,7 @@ apply plugin: 'org.jetbrains.intellij'
 intellij {
     version = 'IC-2016.3'
     plugins = ['IdeaVIM:0.48']
-    pluginName = 'ideavim_fcitx_switch'
+    pluginName = 'ideavim_ime_switch'
     updateSinceUntilBuild false
 }
 
