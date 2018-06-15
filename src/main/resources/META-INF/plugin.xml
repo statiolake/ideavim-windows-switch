@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>com.example.ideavim_ime_switch</id>
-    <name>IdeaVimIMESwitch</name>
-    <version>0.0.1</version>
+    <id>com.example.ideavim_windows_switch</id>
+    <name>IdeaVimWindowsSwitch</name>
+    <version>0.0.2</version>
     <vendor email="statiolake@gmail.com">statiolake</vendor>
 
     <description>
@@ -12,6 +12,10 @@
 
     <change-notes>
         <![CDATA[
+        0.0.2<br />
+        support restoring last status. <br />
+        use native dll instead of setime executable for speed. <br />
+        <br />
         0.0.1<br />
         initial implementation.
         ]]>
@@ -21,6 +25,6 @@
     <depends>com.intellij.modules.lang</depends>
     <depends>IdeaVIM</depends>
     <extensions defaultExtensionNs="IdeaVIM">
-        <vimExtension implementation="com.example.ideavim_ime_switch.Restore" />
+        <vimExtension implementation="com.example.ideavim_windows_switch.Restore" />
     </extensions>
 </idea-plugin>
